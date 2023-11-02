@@ -346,6 +346,83 @@ img {
   transform: translateY(5px);
 }
 /************************************* end skill *************************************/
+/************************************* start service *************************************/
+.service__container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 50px;
+  margin-top: 50px;
+  
+}
+.service__container .service_card{
+  padding: 60px 35px;
+  background-color: var(--container-color);
+  border-radius: 20px;
+}
+.service__container .service_card h2{
+  margin-bottom: 30px;
+}
+.service__container .service_card a{
+  color: var(--first-color);
+}
+.service__container .service_card i{
+transform: translateY(5px);
+font-size: 20px;
+transition: .3s;
+}
+.service__container .service_card a:hover i{
+  transform: translate(10px,5px);
+}
+.service_model{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(var(--second-hue),28%,16%,.7);
+  z-index: 1000000000;
+  display: none;
+  transition: 1s;
+}
+.service_model.active{
+  display: block;
+}
+.service_model .content{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: var(--body-color);
+  width: 40%;
+  border-radius: 20px;
+  padding: 30px 40px ;
+}
+.service_model .content h2{
+text-align: center;
+margin: 30px 0 20px;
+}
+.service_model .content p{
+  text-align: center;
+  width: 70%;
+  margin: auto;
+}
+.bx-x{
+  position: absolute;
+  top: 12px;
+  right: 22px;
+  z-index: 10000000;
+}
+.service_model .content ul{
+  margin-top: 30px;
+}
+.service_model .content ul li{
+  margin: 10px 0;
+}
+.service_model .content ul li i{
+  color: var(--first-color);
+  font-size: 25px;
+}
+/************************************* end service *************************************/
 @media (max-width: 1300px) {
   .container {
     margin: 0 15rem;
@@ -356,17 +433,24 @@ img {
   .allBoxSkill .box {
     width: 80%;
   }
+  .service__container{
+    margin-top: 70px;
+  }
 }
 @media (max-width: 1100px) {
   .container {
     margin: 0 10rem;
   }
-
-  .allBoxSkill .box .smallBox .skills {
-  }
   .smallBox .skills .icon {
     text-align: left;
     width: 13%;
+  }
+  .service__container{
+    grid-template-columns: repeat(2,1fr);
+   margin-top: 40px; 
+  }
+  .service_model .content{
+    width: 60%;
   }
 }
 @media (max-width: 850px) {
@@ -383,6 +467,10 @@ img {
   .aboutBoxs .about__info {
     width: 100%;
   }
+  .service__container{
+    grid-template-columns: repeat(1,1fr);
+   margin-top: 40px; 
+  }
 }
 @media (max-width: 650px) {
   .container {
@@ -390,6 +478,9 @@ img {
   }
   .allBoxSkill .box {
     width: 100%;
+  }
+  .service_model .content{
+    width: 70%;
   }
 }
 @media (max-width: 450px) {
@@ -404,6 +495,10 @@ img {
   }
   .allBoxSkill .box .smallBox {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .service_model .content{
+    width: 90%;
+  padding: 30px 20px ;
   }
 }
 @media (max-width: 380px) {
@@ -422,7 +517,6 @@ img {
   .container {
     margin: 0 1rem;
   }
-
   .navList li {
     margin: 0 2px;
   }
@@ -431,5 +525,9 @@ img {
   }
   .about__container .allBox {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .service_model .content{
+    width: 95%;
+  padding: 30px 10px ;
   }
 }
