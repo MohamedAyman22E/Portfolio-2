@@ -47,14 +47,6 @@ img {
 :root {
   --header-height: 4rem;
 
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  /*
-          Purple: hsl(250, 66%, 75%)
-          Blue: hsl(207, 90%, 72%)
-          Pink: hsl(356, 66%, 75%)
-          Teal: hsl(174, 63%, 62%)
-    */
   --first-hue: 250;
   --sat: 66%;
   --lig: 75%;
@@ -85,6 +77,20 @@ img {
   --z-fixed: 100;
   --z-modal: 1000;
 }
+body.light-theme {
+  --title-color: hsl(var(--second-hue), 15%, 15%);
+  --text-color: hsl(var(--second-hue), 8%, 335%);
+  --body-color: hsl(var(--second-hue), 100%, 99%);
+  --container-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--container-color);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: var(--first-color);
+}
 /***************************************** start header *****************************************/
 .header {
   position: fixed;
@@ -93,6 +99,10 @@ img {
   top: 0;
   left: 0;
   background-color: var(--body-color);
+  transition: 0.3s;
+}
+.header.active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .nav {
   height: var(--header-height);
@@ -104,7 +114,6 @@ img {
   font-size: 20px;
   color: var(--first-color);
 }
-
 /* start navList */
 .navMenu {
   position: fixed;
@@ -116,15 +125,21 @@ img {
   border-radius: 50px;
   backdrop-filter: blur(10px);
 }
+.light-theme .navMenu {
+  background-color: hsla(var(--second-hue), 32%, 90%, 0.8);
+}
 .navList {
   display: flex;
 }
 .navList li {
   margin: 0 15px;
 }
+.light-theme .navItem a {
+  color: var(--first-color);
+}
 .navList li a {
   font-size: 25px;
-  color: var(--text-color);
+  color: var(--title-color);
   padding: 0.4rem 0.5rem;
   border-radius: 50%;
 }
@@ -135,6 +150,11 @@ img {
     hsla(var(--first-hue), var(--sat), var(--lig), 0.2)
   );
   box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
+}
+#theme-button {
+  color: var(--first-color-alt);
+  font-size: 20px;
+  cursor: pointer;
 }
 /* end navList */
 /*********************************** end header ***********************************/
@@ -148,6 +168,11 @@ img {
 .home_date {
   text-align: center;
   margin-top: 20px;
+}
+.home_date span,
+.home_date h6 {
+  color: var(--first-color-alt);
+  font-size: 15px;
 }
 .home_date h2 {
   font-size: var(--h1-font-size);
@@ -236,11 +261,11 @@ img {
 /************************************* start about *************************************/
 .heading {
   text-align: center;
+  color: var(--title-color);
 }
 .heading h2 {
   color: var(--first-color);
 }
-
 .about__container .aboutBoxs {
   display: flex;
   justify-content: center;
@@ -275,12 +300,15 @@ img {
 }
 .about__container .allBox .box h3 {
   font-size: 15px;
+  color: var(--title-color);
 }
 .about__container .allBox .box span {
   font-size: 10px;
+  color: var(--title-color);
 }
 .aboutBoxs .about__info p {
   margin: 25px 0;
+  color: var(--title-color);
 }
 .aboutBoxs .about__info .aboutBtn {
   padding: 10px 15px;
@@ -347,82 +375,265 @@ img {
 }
 /************************************* end skill *************************************/
 /************************************* start service *************************************/
-.service__container{
+.service__container {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   margin-top: 50px;
-  
 }
-.service__container .service_card{
+.service__container .service_card {
   padding: 60px 35px;
   background-color: var(--container-color);
   border-radius: 20px;
 }
-.service__container .service_card h2{
+.service__container .service_card h2 {
   margin-bottom: 30px;
 }
-.service__container .service_card a{
+.service__container .service_card a {
   color: var(--first-color);
 }
-.service__container .service_card i{
-transform: translateY(5px);
-font-size: 20px;
-transition: .3s;
+.service__container .service_card i {
+  transform: translateY(5px);
+  font-size: 20px;
+  transition: 0.3s;
 }
-.service__container .service_card a:hover i{
-  transform: translate(10px,5px);
+.service__container .service_card a:hover i {
+  transform: translate(10px, 5px);
 }
-.service_model{
+.service_model {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: hsl(var(--second-hue),28%,16%,.7);
+  background-color: hsl(var(--second-hue), 28%, 16%, 0.7);
   z-index: 1000000000;
   display: none;
   transition: 1s;
 }
-.service_model.active{
+.service_model.active {
   display: block;
 }
-.service_model .content{
+.service_model .content {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: var(--body-color);
   width: 40%;
   border-radius: 20px;
-  padding: 30px 40px ;
+  padding: 30px 40px;
+  color: var(--title-color);
 }
-.service_model .content h2{
-text-align: center;
-margin: 30px 0 20px;
+.service_model .content h2 {
+  text-align: center;
+  margin: 30px 0 20px;
 }
-.service_model .content p{
+.service_model .content p {
   text-align: center;
   width: 70%;
   margin: auto;
 }
-.bx-x{
+.bx-x {
   position: absolute;
   top: 12px;
   right: 22px;
   z-index: 10000000;
 }
-.service_model .content ul{
+.service_model .content ul {
   margin-top: 30px;
 }
-.service_model .content ul li{
+.service_model .content ul li {
   margin: 10px 0;
 }
-.service_model .content ul li i{
+.service_model .content ul li i {
   color: var(--first-color);
   font-size: 25px;
 }
 /************************************* end service *************************************/
+.work_filter {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.work_filter span {
+  margin: 0 5px;
+  border-radius: 5px;
+  padding: 5px 20px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--title-color);
+}
+.work_filter span.active {
+  background-color: var(--first-color);
+  color: var(--body-color);
+}
+.work_container {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 50px;
+}
+.work_container .work_card {
+  background-color: var(--container-color);
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+.work_container .work_card .img img {
+  border-radius: 10px;
+}
+.work_container .work_card .content h2 {
+  font-size: 20px;
+}
+.work_container .work_card .content a {
+  color: var(--first-color);
+}
+.work_container .work_card .content a i {
+  transform: translateY(5px);
+  font-size: 20px;
+}
+/************************************* start work *************************************/
+.work__container {
+  margin-top: 100px;
+}
+.clint__container .workAllBox {
+  margin: 50px 0;
+}
+.workAllBox li {
+  background-color: var(--container-color);
+  padding: 30px;
+  border-radius: 20px;
+}
+.workAllBox .img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.workAllBox P {
+  color: var(--title-color);
+}
+/************************************* end work *************************************/
+/************************************* start contact *************************************/
+.contact_container {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 5%;
+  gap: 80px;
+}
+.contact_container .contact_info h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.container_contact_info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 70px;
+}
+.container_contact_info .card {
+  background-color: var(--container-color);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+.container_contact_info .card i {
+  font-size: 25px;
+  color: var(--title-color);
+}
+.container_contact_info .card a {
+  color: var(--first-color);
+}
+.container_contact_info .card p {
+  color: var(--title-color);
+}
+.container_contact_info .card a i {
+  transform: translateY(5px);
+}
+.contact_container .contact_form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+form .input,
+form .textarea {
+  position: relative;
+}
+form .input input,
+form .textarea textarea {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 15px 10px;
+  border: 2px solid var(--text-color-light);
+  outline: none;
+  position: relative;
+  margin: 10px 0;
+}
+form .logo {
+  position: absolute;
+  top: -1px;
+  left: 33px;
+  background-color: var(--body-color);
+  z-index: 100000;
+  padding: 0 10px;
+  color: var(--title-color);
+}
+form button {
+  padding: 10px 15px;
+  background-color: var(--first-color-alt);
+  color: var(--body-color);
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+}
+/************************************* end contact *************************************/
+.end {
+  background-color: var(--first-color-alt);
+  padding: 30px 20px;
+  height: 400px;
+}
+.content_container {
+  text-align: center;
+}
+.content_container h3 {
+  color: var(--body-color);
+  font-size: 30px;
+}
+.end .title,
+.end .icon {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+.end .title li,
+.end .icon li {
+  margin: 0 20px;
+}
+.end .icon li a,
+.end .title li a {
+  color: var(--body-color);
+  font-size: 20px;
+}
+.end .icon li i {
+  padding: 10px;
+  background-color: var(--body-color);
+  border-radius: 10px;
+  font-size: 25px;
+  border: 3px solid var(--body-color);
+  transition: 0.3s;
+  color: var(--title-color);
+}
+.end .icon li:hover i {
+  background-color: transparent;
+  color: var(--body-color);
+}
+.endHeading {
+  margin-top: 60px;
+}
+.endHeading span {
+  color: var(--body-color);
+  font-weight: 800;
+  font-size: 30px;
+}
 @media (max-width: 1300px) {
   .container {
     margin: 0 15rem;
@@ -433,8 +644,11 @@ margin: 30px 0 20px;
   .allBoxSkill .box {
     width: 80%;
   }
-  .service__container{
+  .service__container {
     margin-top: 70px;
+  }
+  .contact_container {
+    margin-top: 8%;
   }
 }
 @media (max-width: 1100px) {
@@ -445,12 +659,20 @@ margin: 30px 0 20px;
     text-align: left;
     width: 13%;
   }
-  .service__container{
-    grid-template-columns: repeat(2,1fr);
-   margin-top: 40px; 
+  .service__container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
   }
-  .service_model .content{
+  .service_model .content {
     width: 60%;
+  }
+  .contact_container {
+    margin-top: 10%;
+  }
+}
+@media (max-width: 990px) {
+  .contact_container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media (max-width: 850px) {
@@ -467,9 +689,15 @@ margin: 30px 0 20px;
   .aboutBoxs .about__info {
     width: 100%;
   }
-  .service__container{
-    grid-template-columns: repeat(1,1fr);
-   margin-top: 40px; 
+  .service__container {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 40px;
+  }
+  .work_container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .contact_container {
+    margin-top: 12%;
   }
 }
 @media (max-width: 650px) {
@@ -479,11 +707,17 @@ margin: 30px 0 20px;
   .allBoxSkill .box {
     width: 100%;
   }
-  .service_model .content{
+  .service_model .content {
     width: 70%;
   }
+  .contact_container {
+    margin-top: 12%;
+  }
+  .endHeading span {
+    font-size: 25px;
+  }
 }
-@media (max-width: 450px) {
+@media (max-width: 460px) {
   .navMenu {
     padding: 15px;
   }
@@ -496,29 +730,50 @@ margin: 30px 0 20px;
   .allBoxSkill .box .smallBox {
     grid-template-columns: repeat(1, 1fr);
   }
-  .service_model .content{
+  .service_model .content {
     width: 90%;
-  padding: 30px 20px ;
+    padding: 30px 20px;
+  }
+  .container_contact_info {
+    padding: 0 50px;
+  }
+  .work_filter {
+    flex-direction: column;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .home__container {
     padding-top: 1rem;
   }
   .home_social {
     bottom: 45px;
   }
-
+  .navList li {
+    margin: 0 2px;
+  }
   .home_scroll {
     bottom: 65px;
+  }
+  .container_contact_info {
+    padding: 0 30px;
+  }
+  .end .title,
+  .end .icon {
+    flex-direction: column;
+  }
+  .end .title li,
+  .end .icon li {
+    margin: 10px 0px;
+  }
+  .end {
+    padding: 30px 20px;
+    margin-top: 20px;
+    height: 650px;
   }
 }
 @media (max-width: 350px) {
   .container {
     margin: 0 1rem;
-  }
-  .navList li {
-    margin: 0 2px;
   }
   .home_scroll {
     right: -15px;
@@ -526,8 +781,11 @@ margin: 30px 0 20px;
   .about__container .allBox {
     grid-template-columns: repeat(1, 1fr);
   }
-  .service_model .content{
+  .service_model .content {
     width: 95%;
-  padding: 30px 10px ;
+    padding: 30px 10px;
+  }
+  .contact_container {
+    margin-top: 12%;
   }
 }

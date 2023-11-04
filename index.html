@@ -7,6 +7,11 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
   </head>
@@ -39,8 +44,13 @@
               </a>
             </li>
             <li class="navItem">
-              <a href="#contact" class="navLink">
+              <a href="#clint" class="navLink">
                 <i class="bx bxs-message-dots"></i>
+              </a>
+            </li>
+            <li class="navItem">
+              <a href="#contact" class="navLink">
+                <i class="bx bxs-chat"></i>
               </a>
             </li>
           </ul>
@@ -51,84 +61,80 @@
     </header>
     <!-- end header -->
     <!-- start main -->
-    <div class="main">
-      <section class="home section" id="home">
-        <div class="home__container container grid">
-          <div class="home_date">
-            <span>hello,i'm</span>
-            <h2>ansel klee</h2>
-            <h6>frontend developer</h6>
-            <div class="button">
-              <a href="cv saudia.xlsx" class="btnCv">download ce</a>
-              <a href="#about" class="btnAbout">about me</a>
-            </div>
-          </div>
-          <div class="img">
-            <img src="img/perfil.png" alt="" />
-          </div>
-          <div class="home_social">
-            <a href="#">
-              <i class="bx bxl-facebook"></i>
-            </a>
-            <a href="#">
-              <i class="bx bxl-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="bx bxl-github"></i>
-            </a>
-            <a href="#">
-              <i class="bx bxl-instagram"></i>
-            </a>
-          </div>
-          <div class="home_scroll">
-            <a href="#">
-              <i class="bx bx-mouse"></i>
-              <span class="home_scroll_name">down</span>
-            </a>
+    <section class="home section main" id="home">
+      <div class="home__container container grid">
+        <div class="home_date">
+          <span>hello,i'm</span>
+          <h2>ansel klee</h2>
+          <h6>frontend developer</h6>
+          <div class="button">
+            <a href="cv saudia.xlsx" class="btnCv">download ce</a>
+            <a href="#about" class="btnAbout">about me</a>
           </div>
         </div>
-      </section>
-    </div>
+        <div class="img">
+          <img src="img/perfil.png" alt="" />
+        </div>
+        <div class="home_social">
+          <a href="#">
+            <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="#">
+            <i class="bx bxl-instagram"></i>
+          </a>
+        </div>
+        <div class="home_scroll">
+          <a href="#">
+            <i class="bx bx-mouse"></i>
+            <span class="home_scroll_name">down</span>
+          </a>
+        </div>
+      </div>
+    </section>
     <!-- end main -->
     <!-- start about -->
-    <div class="main">
-      <section class="about__container section container grid">
-        <div class="heading">
-          <span>my intro</span>
-          <h2>about me</h2>
+    <section class="about__container section container grid main" id="about">
+      <div class="heading">
+        <span>my intro</span>
+        <h2>about me</h2>
+      </div>
+      <div class="aboutBoxs">
+        <div class="about__img">
+          <img src="img/about.jpg" alt="" />
         </div>
-        <div class="aboutBoxs">
-          <div class="about__img">
-            <img src="img/about.jpg" alt="" />
-          </div>
-          <div class="about__info">
-            <div class="allBox">
-              <div class="box">
-                <i class="bx bx-award"></i>
-                <h3>experience</h3>
-                <span>8 years working</span>
-              </div>
-              <div class="box">
-                <i class="bx bx-briefcase-alt"></i>
-                <h3>completed</h3>
-                <span>48+ projects</span>
-              </div>
-              <div class="box">
-                <i class="bx bx-support"></i>
-                <h3>support</h3>
-                <span>online 24/7</span>
-              </div>
+        <div class="about__info">
+          <div class="allBox">
+            <div class="box">
+              <i class="bx bx-award"></i>
+              <h3>experience</h3>
+              <span>8 years working</span>
             </div>
-            <p>
-              Frontend developer, I create web pages with UI / UX user
-              interface, I have years of experience and many clients are happy
-              with the projects carried out.
-            </p>
-            <a href="#about" class="aboutBtn">contact me</a>
+            <div class="box">
+              <i class="bx bx-briefcase-alt"></i>
+              <h3>completed</h3>
+              <span>48+ projects</span>
+            </div>
+            <div class="box">
+              <i class="bx bx-support"></i>
+              <h3>support</h3>
+              <span>online 24/7</span>
+            </div>
           </div>
+          <p>
+            Frontend developer, I create web pages with UI / UX user interface,
+            I have years of experience and many clients are happy with the
+            projects carried out.
+          </p>
+          <a href="#about" class="aboutBtn">contact me</a>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
     <!-- end about -->
     <!-- start skill -->
     <section class="skill__container section container grid" id="skill">
@@ -357,7 +363,213 @@
       </div>
     </section>
     <!-- end service -->
+    <!-- start work -->
+    <section class="work section" id="work">
+      <div class="heading">
+        <span>my portfolio</span>
+        <h2>resent work</h2>
+      </div>
+      <div class="work_filter">
+        <span class="work_item active" data-filter="all">all</span>
+        <span class="work_item" data-filter=".web ">web</span>
+        <span class="work_item" data-filter=".movil ">movil</span>
+        <span class="work_item" data-filter=".design ">design</span>
+      </div>
+      <div class="work_container container grid">
+        <div class="work_card mix web">
+          <div class="img">
+            <img src="img/work1.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h2>web design</h2>
+            <a href="#work">demo <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+        </div>
+        <div class="work_card mix app wzat">
+          <div class="img">
+            <img src="img/work2.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h2>app movil</h2>
+            <a href="#work">demo <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+        </div>
+        <div class="work_card mix design">
+          <div class="img">
+            <img src="img/work3.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h2>brand design</h2>
+            <a href="#work">demo <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+        </div>
+        <div class="work_card mix web ayman">
+          <div class="img">
+            <img src="img/work4.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h2>web design</h2>
+            <a href="3work">demo <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+        </div>
+        <div class="work_card mix movil mohame">
+          <div class="img">
+            <img src="img/work5.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h2>app movil</h2>
+            <a href="#work">demo <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end work -->
+    <section class="main clint__container section" id="clint">
+      <div class="heading">
+        <span>my client say</span>
+        <h2>testimonial</h2>
+      </div>
 
+      <div class="swiper mySwiper container">
+        <ul class="workAllBox swiper-wrapper">
+          <li class="box swiper-slide">
+            <div class="img">
+              <img src="img/work1.jpg" alt="" />
+            </div>
+            <h3>jhon doe</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptate, tempora?
+            </p>
+          </li>
+          <li class="box swiper-slide">
+            <div class="img">
+              <img src="img/work2.jpg" alt="" />
+            </div>
+            <h3>jhon doe</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptate, tempora?
+            </p>
+          </li>
+          <li class="box swiper-slide">
+            <div class="img">
+              <img src="img/work3.jpg" alt="" />
+            </div>
+            <h3>jhon doe</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptate, tempora?
+            </p>
+          </li>
+          <li class="box swiper-slide">
+            <div class="img">
+              <img src="img/work4.jpg" alt="" />
+            </div>
+            <h3>jhon doe</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptate, tempora?
+            </p>
+          </li>
+          <li class="box swiper-slide">
+            <div class="img">
+              <img src="img/work5.jpg" alt="" />
+            </div>
+            <h3>jhon doe</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptate, tempora?
+            </p>
+          </li>
+        </ul>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- start contact -->
+    <section class="contact section" id="contact">
+      <div class="heading">
+        <span>get in touch</span>
+        <h2>contact me</h2>
+      </div>
+      <div class="contact_container container grid">
+        <div class="contact_info">
+          <h2>talk to me</h2>
+          <div class="container_contact_info">
+            <div class="card">
+              <i class="bx bx-envelope"></i>
+              <h3>email</h3>
+              <p>user@gmail.com</p>
+              <a href="#contact"
+                >write me <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+            <div class="card">
+              <i class="bx bxl-whatsapp"></i>
+              <h3>email</h3>
+              <p>999-888-777</p>
+              <a href="#contact"
+                >write me <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+            <div class="card">
+              <i class="bx bx-message-rounded-dots"></i>
+              <h3>messenger</h3>
+              <p>user.fb123</p>
+              <a href="#contact"
+                >write me <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="contact_form">
+          <h2>write me your project</h2>
+          <form action="#">
+            <div class="input">
+              <input type="text" placeholder="insert your name" />
+              <span class="logo">names</span>
+            </div>
+            <div class="input">
+              <input type="email" placeholder="insert your email" />
+              <span class="logo">mail</span>
+            </div>
+            <div class="textarea">
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="write your message"
+              ></textarea>
+              <span class="logo">project</span>
+            </div>
+            <button type="submit">send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- end contact -->
+    <!-- end  -->
+    <section class="end">
+      <div class="content_container">
+        <h3>ansel</h3>
+        <ul class="title">
+          <li><a href="#about">about</a></li>
+          <li><a href="#work">projects</a></li>
+          <li><a href="#clint">testimonial</a></li>
+        </ul>
+        <ul class="icon">
+          <li><i class="bx bxl-facebook"></i></li>
+          <li><i class="bx bxl-instagram"></i></li>
+          <li><i class="bx bxl-twitter"></i></li>
+        </ul>
+
+        <h2 class="endHeading">created by => <span>mohamed ayman</span></h2>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
